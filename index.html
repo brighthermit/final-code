@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>WebSocket Chat Demo with WebRTC Calling</title>
+  <meta charset="utf-8">
+  <link href="chat.css" rel="stylesheet">
+  <link href="../shared.css" rel="stylesheet">
+  <script type="text/javascript" src="chatclient.js"></script>
+  <script src="adapter.js"></script>
+</head>
+<style>
+    body{
+    background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v413-sasi-43-crystalbackground_2.jpg?auto=format&bg=F4F4F3&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-1.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1200&s=1d4d310925b2d68f28cfde998688d794g");
+    background-color: #cccccc;
+    }
+    
+    </style>
+<body>
+  <p>Enter a username: <input id="name" type="text" maxlength="12" required
+      autocomplete="username" inputmode="verbatim" placeholder="Username">
+  <input type="button" name="log in" value="Log in" onclick="connect()">
+  <p align = "right"> <a href= "https://bright.ikirize.net:6504/nobe.html" target="_blank"> Download </a></p>
+  
+  <div id="container" class="flexChild columnParent">
+    <div class="flexChild rowParent">
+      <div class="flexChild rowParent">
+        <div class="flexChild" id="userlist-container">
+          <ul id="userlistbox"></ul>
+        </div>
+        <div class="flexChild" id="camera-container">
+            <div class="camera-box">
+              <video id="received_video" autoplay></video>
+              <video id="local_video" autoplay muted></video>
+              <button id="hangup-button" onclick="hangUpCall();" disabled>
+                Hang Up
+              </button>
+            </div>
+          </div>
+        <div class="flexChild" id="chat-container">
+          <iframe id="chatbox"></iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flexChild rowParent" id="control-row">
+      <div class="flexChild" id="empty-container"></div>
+      <div class="flexChild" id="chat-controls-container">
+        Chat: <input id="text" type="text" name="text" size="80" maxlength="256"
+          placeholder="Chat with us!" autocomplete="off" onkeyup="handleKey(event)"
+          >
+        <input type="button" id="send" name="send" value="Send"
+          onclick="handleSendButton()" >
+          <!--<br></br>
+          URLs:<input id="text1" type="text" name="text" size="80" maxlength="256"
+          placeholder="Send URL" autocomplete="off" onkeyup="handleKey1(event)"
+          >
+          <input type="button" id="send1" name="send" value="Send"
+          onclick="handleSendButton1()" >-->
+      </div>
+    </div>
+  </div>
+</body>
+</html>
